@@ -139,13 +139,13 @@
             console.log(co2_extent)
 
 
-            makes = d3.map(data, function(d){return d.Makes;}).keys()
+            makes = d3.map(data, function(d){return d.Make;}).keys()
             selected_makes = [...makes]
             console.log('hi')
-            console.log(makes.length)
+            console.log(makes)
             xs = d3.scaleLinear().domain(engine_size_extent).range([0,svg_dim2]);
             ys = d3.scaleLinear().domain(co2_extent).range([svg_dim,0]);
-            cs = d3.scaleOrdinal().domain(makes).range(["blue", "green", "black", "red", "darkorange", "darkred", "darkgreen","grey"])
+            cs = d3.scaleOrdinal().domain(makes).range(d3.schemeCategory10)
             //cs = d3.scaleOrdinal().domain(regions).range(d3.schemeTableau10)//d3.schemeCategory10)
 
 
