@@ -107,7 +107,7 @@
                 dy: -10,
                 dx: -10
             }
-            ].map(function(d){ d.color = "Blue"; return d})
+            ].map(function(d){ d.color = "DarkOrange"; return d})
 
 
             const makeAnnotations = d3.annotation()
@@ -163,9 +163,10 @@
                 {
                     type: d3.annotationCallout,
                     note: {
-                        label: "Car manufacturers like Chevy appear to stick to certain engine sizes across similar car platforms",
-                        title: "This is our specialty",
-                        wrap: 160
+                        label: "Car manufacturers like Chevy appear to stick to certain engine sizes across similar car platforms. \
+                        Do you think this might help reduce emissions from the manufacturing plants?",
+                        title: "Inadverdant cost saving measures might reduce emissions",
+                        wrap: 220
                     },
                     x: 170,
                     y: 550,
