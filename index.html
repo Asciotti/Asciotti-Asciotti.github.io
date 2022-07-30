@@ -177,7 +177,7 @@
                     type: d3.annotationCallout,
                     note: {
                         label: "The Ford GT has considerably the largest Co2 emissions out of this selection of 6 cylinder vehicles.\
-                        It is a supercar, sporting about 650 horse power, ~200-300 more than trucks like the F-150 or Silverado.",
+                        It is a supercar sporting about 650 horse power, ~200-300 more than trucks like the F-150 or Silverado.",
                         title: "Ford, a track and climate terror?",
                         wrap: 160
                     },
@@ -501,7 +501,10 @@
         d3.select(".supra6").attr("opacity",0)
         d3.select(".audi8").attr("opacity",0)
         if(select_cylinder==4) if(selected_makes.includes("CHEVROLET")) d3.select(".carmakers4").attr("opacity",1);
-        if(select_cylinder==4) d3.select(".hybrids4").attr("opacity",1);
+        if(select_cylinder==4) if(
+            selected_makes.includes("TOYOTA") 
+            || selected_makes.includes("FORD")
+            || selected_makes.includes("HONDA")) d3.select(".hybrids4").attr("opacity",1);
         if(select_cylinder==6) if(selected_makes.includes("FORD")) d3.select(".fordgt6").attr("opacity",1);
         if(select_cylinder==6) if(selected_makes.includes("TOYOTA")) d3.select(".supra6").attr("opacity",1);
         if(select_cylinder==8) if(selected_makes.includes("AUDI")) d3.select(".audi8").attr("opacity",1);
