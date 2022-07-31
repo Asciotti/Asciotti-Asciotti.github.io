@@ -1,11 +1,10 @@
 
 <!DOCTYPE html>
 <html>
-
 <link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<!-- Inspired from https://purohitpraven.github.io/ -->
 <style>
-    /*circle {fill: lightblue; stroke: darkred;}*/
     div.tooltip {
         position: absolute;
         text-align: center;
@@ -318,14 +317,13 @@
                 .attr("id", "chart")
                 .attr('transform','translate(' + margin + ',' + margin + ')')
 
-            //Filter dataset to be just the year selected
+            //Filter dataset to be just the cylinder selected
             let select_cylinder_data = data.filter(function(e){return (e.Cylinders==select_cylinder)})
             console.log(select_cylinder_data.length)
             var nest = d3.nest()
                 .key(function(d) { return d.Make; })
                 .entries(select_cylinder_data);
 
-            console.log(nest)
             let chart = d3.select("#chart")
 
 
@@ -363,7 +361,7 @@
                 .attr("id", function(d){return(d.Make)})
                 .attr("transform", function(d, i) {
                     let co2_emiss = ys(d.CO2Emissions)
-                    let engine_size = xs(d.EngineSize)// + Math.random()*2
+                    let engine_size = xs(d.EngineSize)
                     return "translate(" + engine_size + "," + co2_emiss + ")"; })
                     .on("mouseover", function(d) {
                     if(selected_makes.includes(d.Make)){
@@ -469,7 +467,7 @@
                 .attr("id", function(d){return(d.Make)})
                 .attr("transform", function(d, i) {
                     let co2_emiss = ys(d.CO2Emissions)
-                    let engine_size = xs(d.EngineSize)// + Math.random()*2
+                    let engine_size = xs(d.EngineSize)
                     return "translate(" + engine_size + "," + co2_emiss + ")"; })
                     .on("mouseover", function(d) {
                     if(selected_makes.includes(d.Make)){
